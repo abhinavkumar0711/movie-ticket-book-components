@@ -9,7 +9,9 @@
     "type": "git",
     "url": "https://gitlab.com/movie-ticket-booking-app/movie-ticket-booking-components"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -30,13 +32,19 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
-  "keywords": ["react", "vite", "component-library", "movie-ticket-booking"],
+  "keywords": [
+    "react",
+    "vite",
+    "component-library",
+    "movie-ticket-booking"
+  ],
   "author": "Abhinav Kumar",
   "license": "MIT",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-qr-code": "^2.0.15"
+    "react-qr-code": "^2.0.15",
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
