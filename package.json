@@ -7,7 +7,15 @@
   "module": "./dist/index.es.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-component.git"
+    "url": "https://gitlab.com/movie-ticket-booking-app/movie-ticket-booking-components"
+  },
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
@@ -15,9 +23,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublish": "rm -rf ./dist && npm run build"
   },
-  "files": ["dist"],
   "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
