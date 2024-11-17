@@ -108,28 +108,6 @@ function Test() {
         setCount={setCount}
       />
 
-
-      {/* <FeatureInProgress /> 
-      <Text type='cusom' customClass={'text-red-500'} content='hello world' />
-      <InputField type='text' placeholderText='sadfasdf' /> */}
-
-      {/* 
-      
-      <Button type='secondary' disabled={false} arrow={true} text={'+'} buttonClass='ml-10 mr-10' />
-      <Button type='primary' />
-          
-          <Counter count={count} setCount={setCount} direction='column' />
-          <PageProgressIndicator currentPage={2} totalPages={2}/>
-          <ScrollableList category='Latest Movies' imagesObject={imgObj}/>
-          <ScrollableList category='Highly Watched' imagesObject={imgObj}/>
-          <MovieTitle title='Kung Fu Panda' rating='5' imdbRating='8.5' studio='animation studio'/>
-
-          
-          
-        
-
-          */}
-
       <BottomNavigationBar onHeartClick={heartClicked} currentTab={currentTab} />
 
 

@@ -17,7 +17,6 @@ const TheatreSeatsMap = ({ availableSeats, setAvailableSeats, ticketCount, seats
   
       const updatedSeatsSelected = seatsSelected.filter(seat => seat !== seatId);
       setSeatsSelected(updatedSeatsSelected);
-      console.log(updatedSeatsSelected);
       return;
     }
 
