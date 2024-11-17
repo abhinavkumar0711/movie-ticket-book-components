@@ -1,49 +1,107 @@
-import { fn } from '@storybook/test';
+import React from 'react';
+import Button from './Button';
+import backArrowIcon from '../../../assets/backArrow.png';
 
-import { Button } from './Button';
-
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
-  title: 'Example/Button',
-  component: Button,
+  title: 'Components/Button', 
+  component: Button, 
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
+    docs: {
+      description: {
+        component: 'Button Component with different styles',
+      },
+    },
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    type: {
+      description: 'Defines the style type of the button.',
+      control: { type: 'select' },
+      options: [
+        'primary',
+        'secondary',
+        'selection',
+        'icon-primary',
+        'icon-without-border',
+        'back-button',
+        'counter',
+        'custom',
+      ],
+    },
+    text: {
+      description: 'Text content displayed inside the button.',
+      control: { type: 'text' },
+    },
+    image: {
+      description: 'Image displayed in icon buttons.',
+      control: { type: 'text' },
+    },
+    disabled: {
+      description: 'Disables the button if set to true.',
+      control: { type: 'boolean' },
+    },
+    buttonClass: {
+      description: 'Custom class for the button wrapper.',
+      control: { type: 'text' },
+    },
+    contentClass: {
+      description: 'Custom class for the button content.',
+      control: { type: 'text' },
+    },
+    onClick: {
+      description: 'Function triggered when the button is clicked.',
+      action: 'clicked',
+    },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
+const Template = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  type: 'primary',
+  text: 'Proceed',
+  disabled: false,
 };
 
-export const Secondary = {
-  args: {
-    label: 'Button',
-  },
+export const Secondary = Template.bind({});
+Secondary.args = {
+  type: 'secondary',
+  text: 'Cancel',
+  disabled: false,
 };
 
-export const Large = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
+export const Selection = Template.bind({});
+Selection.args = {
+  type: 'selection',
+  text: 'Select',
+  disabled: false,
 };
 
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
+export const IconPrimary = Template.bind({});
+IconPrimary.args = {
+  type: 'icon-primary',
+  image: backArrowIcon,
+  disabled: false,
+};
+
+export const IconWithoutBorder = Template.bind({});
+IconWithoutBorder.args = {
+  type: 'icon-without-border',
+  image: backArrowIcon,
+  disabled: false,
+};
+
+export const BackButton = Template.bind({});
+BackButton.args = {
+  type: 'back-button',
+  image: backArrowIcon,
+  disabled: false,
+};
+
+export const Custom = Template.bind({});
+Custom.args = {
+  type: 'custom',
+  text: 'Custom Style',
+  buttonClass: 'bg-red-500 text-white px-4 py-2 rounded',
+  disabled: false,
 };
