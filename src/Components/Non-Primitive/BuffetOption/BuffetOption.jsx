@@ -15,9 +15,9 @@ const BuffetOption = ({ title, subTitle, description, price, image, count, setCo
 
       <div className="flex-1 flex flex-col justify-between">
         <div className="space-y-1">
-          <Text type='heading-large' content={title} />
-          <Text type='label' content={subTitle} />
-          <Text type='label' content={description} />
+          <Text type='heading-large' content={title} customClass={'block'} />
+          <Text type='label' content={subTitle} customClass={'block'}/>
+          <Text type='label' content={description} customClass={'block'}/>
         </div>
         <div className="mt-7">
           <Text type='default' content={'Price:'} customClass={'block'} />
@@ -25,7 +25,7 @@ const BuffetOption = ({ title, subTitle, description, price, image, count, setCo
         </div>
       </div>
 
-      <Counter count={count} setCount={setCount} direction="column" />
+      <Counter count={count} setCount={setCount} direction="column" text='' />
     </div>
   );
 };

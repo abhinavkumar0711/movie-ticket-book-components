@@ -8,13 +8,20 @@ const TheatreSeatsMap = ({ availableSeats, setAvailableSeats, ticketCount, seats
   const cols = Array.from({ length: columnsInTheatre }, (_, i) => i + 1)
 
   const handleSeatClick = (seatId) => {
-    if (seatsSelected.includes(seatId)){
-      const updatedSeatsSelected = array.filter(seat => seat !== seatId);
-      setSelectedSeats(updatedSeatsSelected);
-    } 
+
+    if (seatsSelected.includes(seatId)) {
+      setAvailableSeats((prevAvailableSeats) => ({
+        ...prevAvailableSeats,
+        [seatId]: 'available',
+      }));
+  
+      const updatedSeatsSelected = seatsSelected.filter(seat => seat !== seatId);
+      setSeatsSelected(updatedSeatsSelected);
+      console.log(updatedSeatsSelected);
+      return;
+    }
 
     const newSeatsSelected = [...seatsSelected];
-    
     if (newSeatsSelected.length >= ticketCount) {
 
       const previouslySelectedSeat = newSeatsSelected?.[0];

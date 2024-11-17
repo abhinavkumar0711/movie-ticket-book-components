@@ -50,12 +50,35 @@ function Test() {
     setCurrentTab('favorites');
   }
 
+  const doSomething = () => {
+    console.log('printing 1 correctly');
+  }
 
   return (
-    <div className="relative h-screen max-w-[450px] mx-auto bg-gradient-to-b from-[#0a0712] via-[#06000ecc] to-[#000000] blur-[12.6] overflow-hidden no-doc-scroll scrollbar-hide flex flex-col px-2 rounded-3xl">
+    <div className="relative h-screen max-w-[450px] mx-auto bg-gradient-to-b from-[#0a0712] via-[#06000ecc] to-[#000000] blur-[12.6] overflow-y-auto no-doc-scroll scrollbar-hide flex flex-col px-2 rounded-3xl scroll mb-20">
 
       <Header />
+      {/* <FeatureInProgress onBackClick={doSomething} /> */}
 
+      <TheatreSeatsMap
+           availableSeats={availableSeats}
+           setAvailableSeats={setAvailableSeats}
+           ticketCount={3}
+           seatsSelected={seatsSelected}
+           setSeatsSelected={setSeatsSelected}
+         />
+
+      <TicketSummary
+        movieName={'kung fu pands'}
+        ticketCount={{ adult: 2, children: 1 }}
+        ticketAmount={200}
+        selectedBuffetItems={{ large: 4, medium: 0, doubleMedium: 3, small:5 }}
+        selectedBuffetAmount={100}
+        seatNumbers={['a1', 'a2']}
+        theatreName={'kung fu pands'}
+        totalAmount={2390}
+        sessionTime={`9-10 PM`}
+      />
       <Carousel imageArray={imgObj} category={'highlights'} onImageClick={() => console.log('Tsext 123')} />
 
         <div className='flex flex-row justify-center gap-x-5 bg-black p-5'>
@@ -85,17 +108,6 @@ function Test() {
         setCount={setCount}
       />
 
-      <TicketSummary
-        movieName={'kung fu pands'}
-        ticketCount={{ adult: 2, children: 1 }}
-        ticketAmount={200}
-        selectedBuffetItems={{ large: 4, medium: 2 }}
-        selectedBuffetAmount={100}
-        seatNumbers={['a1', 'a2']}
-        theatreName={'kung fu pands'}
-        totalAmount={2390}
-        sessionTime={`9-10 PM`}
-      />
 
       {/* <FeatureInProgress /> 
       <Text type='cusom' customClass={'text-red-500'} content='hello world' />
@@ -118,13 +130,6 @@ function Test() {
 
           */}
 
-          <TheatreSeatsMap
-           availableSeats={availableSeats}
-           setAvailableSeats={setAvailableSeats}
-           ticketCount={3}
-           seatsSelected={seatsSelected}
-           setSeatsSelected={setSeatsSelected}
-         />
       <BottomNavigationBar onHeartClick={heartClicked} currentTab={currentTab} />
 
 

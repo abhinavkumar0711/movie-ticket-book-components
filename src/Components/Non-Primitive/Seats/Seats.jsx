@@ -1,7 +1,7 @@
 const Seats = ({ id, type, onClick }) => {
   
     const onSeatClick = () => {
-        type === 'available' ? onClick(id) : null;
+        type === 'available' || 'userBooked' ? onClick(id) : null;
     }
 
     const getSeatStyles = () => {

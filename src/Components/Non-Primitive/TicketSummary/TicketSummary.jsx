@@ -16,9 +16,12 @@ const TicketSummary = ({
     const formattedTicketCount = Object.entries(ticketCount)
         .map(([type, count]) => `${count} ${type}`)
         .join(', ');
+
     const formattedBuffetItems = Object.entries(selectedBuffetItems)
-        .map(([item, count]) => `${count} ${item}`)
-        .join(', ');
+    .filter(([_, count]) => count > 0) 
+    .map(([item, count]) => `${count} ${item}`)
+    .join(', ');
+    
     const formattedSeatNumbers = seatNumbers.join(', ');
 
     return (
