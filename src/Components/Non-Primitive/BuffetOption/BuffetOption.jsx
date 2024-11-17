@@ -1,7 +1,7 @@
 import Counter from '../Counter/Counter'; 
 import Text from '../../Primitive/Text/Text';
 
-const BuffetOption = ({ title, subTitle, description, price, image, countObject, keyProp, setCount }) => {
+const BuffetOption = ({ title, subTitle, description, price, image, count, setCount }) => {
   return (
     <div className="flex justify-between bg-[black] px-4 py-4 rounded-xl space-x-4 w-full max-w-lg items-start">
 
@@ -25,7 +25,7 @@ const BuffetOption = ({ title, subTitle, description, price, image, countObject,
         </div>
       </div>
 
-      <Counter countObject={countObject} keyProp={keyProp} setCount={setCount} direction="column" />
+      <Counter count={count} setCount={setCount} direction="column" />
     </div>
   );
 };

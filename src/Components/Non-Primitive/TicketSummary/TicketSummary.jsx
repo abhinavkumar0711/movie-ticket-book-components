@@ -22,14 +22,14 @@ const TicketSummary = ({
     const formattedSeatNumbers = seatNumbers.join(', ');
 
     return (
-        <div className="bg-[#000000] p-6 rounded-lg max-w-[400px] text-white flex ml-10">
+        <div className="bg-[#000000] p-6 rounded-lg max-w-[400px] text-white flex">
             <div className="flex-[0.7] space-y-3">
                 <Text type="label" content={`Movie: ${movieName}`} customClass="block" />
                 
                 <Text 
                     type="label-bold" 
                     content={`Ticket Count: ${formattedTicketCount}`} 
-                    customClass="block inline"
+                    customClass="block"
                 />
                 
                 <Text 
@@ -49,7 +49,7 @@ const TicketSummary = ({
                 <Text 
                     type="label" 
                     content={`Buffet Products: ${formattedBuffetItems}`} 
-                    customClass="block inline"
+                    customClass="block"
                 />
 
                 <Text 

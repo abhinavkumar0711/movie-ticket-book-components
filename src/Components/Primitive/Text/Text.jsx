@@ -16,6 +16,8 @@ const Text = ({ type, content, customClass }) => {
                 return 'text-6xl font-bold text-green-400 shadow-lg';
             case 'price-medium':
                 return 'text-4xl font-bold text-green-400 shadow-lg';
+            case 'custom': 
+                return ``
             default:
                 return 'text-base text-white';
         }

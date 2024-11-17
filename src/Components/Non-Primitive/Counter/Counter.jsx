@@ -1,8 +1,14 @@
 import React from 'react';
 import Button from '../../Primitive/Button/Button';
 
-const Counter = ({ countObject, keyProp, setCount, direction='column' }) => {
-    const count = countObject[keyProp];
+const Counter = ({ count, setCount, direction = 'column', text='Adult' }) => {
+    
+    const incrementCount = () => {
+        setCount(count + 1);
+    };
+    const decrementCount = () => {
+        setCount(Math.max(count - 1, 0)); 
+    };
 
     return (
         <div className={`flex items-center ${direction === 'column' ? 'flex-col space-y-4' : 'flex-row space-x-4'}`}>
@@ -10,13 +16,17 @@ const Counter = ({ countObject, keyProp, setCount, direction='column' }) => {
             <Button
                 type='counter'
                 text="+"
-                onClick={() => setCount({ ...countObject, [keyProp]: count + 1 })}
+                onClick={incrementCount}
             />
-            <span className="text-white text-xl font-semibold">{count}</span>
+            <div className='flex flex-col justify-center items-center'>
+                <span className="text-white text-xl font-semibold block">{count}</span>
+                <span className="text-white text-xl font-semibold block">{text}</span>
+
+            </div>
             <Button
                 type='counter'
                 text="−"
-                onClick={() => setCount({ ...countObject, [keyProp]: count > 0 ? count - 1 : 0 })}
+                onClick={decrementCount}
             />
         </div>
     );

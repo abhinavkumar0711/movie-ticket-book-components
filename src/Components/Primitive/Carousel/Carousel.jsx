@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Text from '../Text/Text';
 import Button from '../Button/Button';
 
-const Carousel = ({ imageArray, category, interval = 3000 }) => {
+const Carousel = ({ imageArray, category, interval = 3000, onImageClick }) => {
 
     const [currIndx, setCurrIndx] = useState(0);
 
@@ -30,6 +30,7 @@ const Carousel = ({ imageArray, category, interval = 3000 }) => {
                             <img
                                 src={image}
                                 className="w-full h-64 object-cover rounded-lg"
+                                onClick={() => onImageClick()}
                             />
                         </div>
                     ))}

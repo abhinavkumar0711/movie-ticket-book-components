@@ -4,12 +4,13 @@ const InputField = ({
   onChange,
   value,
   className,
+  type
 }) => {
   const defaultClass = 'bg-[rgba(77,77,77,0.4)] text-white p-4 rounded-2xl w-full max-w-md';
 
   return (
       <input
-        type="text"
+        type={type}
         id={id}
         placeholder={placeholderText}
         value={value}

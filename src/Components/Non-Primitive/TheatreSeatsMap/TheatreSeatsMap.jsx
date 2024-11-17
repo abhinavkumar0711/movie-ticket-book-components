@@ -8,7 +8,10 @@ const TheatreSeatsMap = ({ availableSeats, setAvailableSeats, ticketCount, seats
   const cols = Array.from({ length: columnsInTheatre }, (_, i) => i + 1)
 
   const handleSeatClick = (seatId) => {
-    if (seatsSelected.includes(seatId)) return;
+    if (seatsSelected.includes(seatId)){
+      const updatedSeatsSelected = array.filter(seat => seat !== seatId);
+      setSelectedSeats(updatedSeatsSelected);
+    } 
 
     const newSeatsSelected = [...seatsSelected];
     
@@ -31,6 +34,9 @@ const TheatreSeatsMap = ({ availableSeats, setAvailableSeats, ticketCount, seats
   };
 
   return (
+
+    
+
     <div className="flex justify-center px-4"> 
       <div className="grid grid-cols-10 gap-1">
         {rows.split('').map((row, rowIndex) => (

@@ -20,6 +20,7 @@ import Screen from './assets/TheatreScreen.png';
 import TheatreSeatsMap from './Components/Non-Primitive/TheatreSeatsMap/TheatreSeatsMap';
 import FeatureInProgress from './Components/Primitive/FeatureInProgress/FeatureInProgress'
 import profileImage from './assets/ProfileSection.png'
+import Text from './Components/Primitive/Text/Text';
 
 function Test() {
 
@@ -51,12 +52,17 @@ function Test() {
 
 
   return (
-    <div className="relative h-screen max-w-[480px] mx-auto bg-[#0C0C0C] blur-[12.6] overflow-x-scroll scrollbar-hide flex flex-col px-2 rounded-3xl pb-16 gap-y-4">
+    <div className="relative h-screen max-w-[450px] mx-auto bg-gradient-to-b from-[#0a0712] via-[#06000ecc] to-[#000000] blur-[12.6] overflow-hidden no-doc-scroll scrollbar-hide flex flex-col px-2 rounded-3xl">
 
       <Header />
 
-      <Carousel imageArray={imgObj} category={'highlights'} />
+      <Carousel imageArray={imgObj} category={'highlights'} onImageClick={() => console.log('Tsext 123')} />
 
+        <div className='flex flex-row justify-center gap-x-5 bg-black p-5'>
+            <Counter count={count} setCount={setCount} direction='row'/>
+                <Divider orientation='vertical' />
+            <Counter count={count} setCount={setCount} direction='row'/>
+        </div>
       <ScrollableList imagesObject={imgObj} category={'New Movies'} />
 
       <AboutMovie title='Kung Fu Panda' rating={5} imdbRating='8.5' studio='animation studio' />
@@ -75,9 +81,8 @@ function Test() {
         description='family meal which includes ...'
         price={30}
         image={scrollImage}
-        countObject={buffetObject}
-        keyProp={'large'}
-        setCount={setBuffetObject}
+        count={count}
+        setCount={setCount}
       />
 
       <TicketSummary
@@ -92,25 +97,14 @@ function Test() {
         sessionTime={`9-10 PM`}
       />
 
-      <QRCodeGenerator
-        size={300}
-        bgColor="#ffffff"
-        fgColor="#000000"
-      />
-
-
-      {/* 
-
-
-            */}
-
+      {/* <FeatureInProgress /> 
+      <Text type='cusom' customClass={'text-red-500'} content='hello world' />
+      <InputField type='text' placeholderText='sadfasdf' /> */}
 
       {/* 
       
-            <Carousel imageArray={imgObj} category='Highlights' />
-
-          <Button type='secondary' disabled={false} arrow={true} text={'+'} buttonClass='ml-10 mr-10' />
-          <Button type='primary' />
+      <Button type='secondary' disabled={false} arrow={true} text={'+'} buttonClass='ml-10 mr-10' />
+      <Button type='primary' />
           
           <Counter count={count} setCount={setCount} direction='column' />
           <PageProgressIndicator currentPage={2} totalPages={2}/>
@@ -120,7 +114,9 @@ function Test() {
 
           
           
-          {/* <FeatureInProgress /> */}
+        
+
+          */}
 
           <TheatreSeatsMap
            availableSeats={availableSeats}
@@ -129,7 +125,6 @@ function Test() {
            seatsSelected={seatsSelected}
            setSeatsSelected={setSeatsSelected}
          />
-
       <BottomNavigationBar onHeartClick={heartClicked} currentTab={currentTab} />
 
 
